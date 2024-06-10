@@ -1,0 +1,45 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/kathulhur/model-inferencing-specification/blob/main/schemas/inference_metadata.json",
+    "title": "Inference Metadata",
+    "description": "Describes the Inference Metadata format",
+    "type": "object",
+    "properties": {
+        "input_files" : {
+            "description": "The input files that the inference server require and accepts for inferencing. Corresponds to a single input file.",
+            "type": "array",
+            "items" : {
+                "description": "The list of input file types that are allowed for a single input",
+                "type": "array",
+                "items": {
+                    "description": "The type of input allowed",
+                    "type": "string",
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            }
+        },
+        "model_artifacts" : {
+            "description": "The model artifacts that the inferencing server needs to build the inference model",
+            "type": "array",
+            "items" : {
+                "description": "The list containing file extensions allowed for this model artifact; Corresponds to a single model artifact",
+                "type": "array",
+                "items": {
+                    "description": "The file extension allowed for the certain artifact",
+                    "type": "string",
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            }
+        }
+    },
+    "required": [ "input_files", "model_artifacts" ]
+}
+
+
+
+
+
+
+
